@@ -39,6 +39,11 @@ p {
   color: #ffffff !important;
 }
 
+/* Explicit price styling overrides the global paragraph color */
+.price {
+  color: #000000 !important;
+}
+
 /* Base UI tokens */
 .container {
   @apply mx-auto px-4 sm:px-6 lg:px-8;

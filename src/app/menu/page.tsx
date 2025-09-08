@@ -44,7 +44,7 @@ export default function MenuPage() {
                   <h3 className="font-bold text-lg text-[var(--color-brand)]">
                     <Link href={`/menu/${item.slug}`}>{item.name}</Link>
                   </h3>
-                  <p className="text-white">{item.price}</p>
+                  <p className="price">{item.price}</p>
                 </div>
                 <a href="#order" className="btn btn-red" data-analytics-event="order_click" data-analytics-label={`menu_page_${item.name}`}>Order</a>
               </div>

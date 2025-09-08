@@ -107,7 +107,7 @@ export default function Home() {
                 <div className="p-5 flex items-center justify-between">
                   <div>
                     <h3 className="font-bold text-lg text-[var(--color-brand)]">{item.name}</h3>
-                    <p className="text-white">{item.price}</p>
+                    <p className="price">{item.price}</p>
                   </div>
                   <a href="#order" className="btn btn-red" data-analytics-event="order_click" data-analytics-label={`menu_${item.name}_${spiceLevel}`} aria-label={`Order ${item.name} - ${spiceLevel}`}>
                     Order
