@@ -2,12 +2,21 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #2B2D42; /* Deep Charcoal */
+  /* Brand palette */
+  --brand-red: #E63946; /* Spicy Red */
+  --charcoal: #2B2D42; /* Deep Charcoal */
+  --white: #FFFFFF; /* White */
+  --accent-yellow: #FFD166; /* Accent Yellow */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand-red);
+  --color-charcoal: var(--charcoal);
+  --color-white: var(--white);
+  --color-accent: var(--accent-yellow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -23,4 +32,71 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Force all paragraph text to white */
+p {
+  color: #ffffff !important;
+}
+
+/* Base UI tokens */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-full font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-5 py-3 shadow-sm;
+}
+
+.btn-primary {
+  @apply bg-[--color-brand] text-white hover:brightness-90 focus-visible:ring-[--color-brand];
+}
+
+.btn-accent {
+  @apply bg-[--color-accent] text-[--color-charcoal] hover:brightness-90 focus-visible:ring-[--color-accent];
+}
+
+.btn-red {
+  @apply bg-[#E63946] text-white hover:bg-[#d6303f] focus-visible:ring-[#E63946];
+}
+
+.btn-white {
+  @apply bg-white text-[#E63946] hover:bg-white/90 focus-visible:ring-white;
+}
+
+.btn-outline {
+  @apply border-2 border-[--color-charcoal] text-[--color-charcoal] hover:bg-[--color-charcoal] hover:text-white;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full bg-[--color-accent] text-[--color-charcoal] px-3 py-1 text-xs font-bold uppercase tracking-wide;
+}
+
+.section {
+  @apply py-12 sm:py-16 md:py-24;
+}
+
+.section-title {
+  @apply text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[--color-charcoal];
+}
+
+.section-subtitle {
+  @apply mt-3 text-base sm:text-lg text-white;
+}
+
+.card {
+  @apply rounded-2xl border border-black/10 bg-white shadow-md;
+}
+
+.pill {
+  @apply inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-xs font-medium text-[--color-charcoal] bg-white/60 backdrop-blur-[1px];
+}
+
+/* High contrast preferences */
+@media (prefers-contrast: more) {
+  .btn-primary { @apply shadow-md; }
+  .btn-accent { @apply shadow-md; }
+  .btn-outline { @apply border-[3px]; }
+  .pill { @apply border-black/40; }
+  .badge { @apply ring-2 ring-black/20; }
 }

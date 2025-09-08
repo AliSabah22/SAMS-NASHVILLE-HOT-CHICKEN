@@ -1,0 +1,14 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sam's Nashville Hot Chicken logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#E63946"/>
+      <stop offset="100%" stop-color="#FFD166"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="120" fill="url(#g)"/>
+  <g fill="#2B2D42">
+    <path d="M76 148c18 0 34-10 42-26 0 0 8-22 36-22 18 0 26 8 26 8-8-26-30-44-56-44-33 0-60 27-60 60s27 60 60 60c26 0 48-18 56-44 0 0-8 8-26 8-28 0-36-22-36-22-8 16-24 26-42 26z"/>
+    <circle cx="176" cy="88" r="10"/>
+  </g>
+</svg>
+
