@@ -4,6 +4,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "About | Sam's Nashville Hot Chicken",
   description: "Opened Sept 2025 at Ridgeway Plaza to bring real Nashville hot chicken to Mississauga's halal foodie hub.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

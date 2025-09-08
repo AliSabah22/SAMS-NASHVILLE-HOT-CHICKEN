@@ -27,6 +27,18 @@ export default function JsonLd() {
       latitude: 43.518,
       longitude: -79.689,
     },
+    openingHoursSpecification: [
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday"], opens: "11:00", closes: "22:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday","Saturday"], opens: "11:00", closes: "23:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday"], opens: "12:00", closes: "21:00" },
+    ],
+    sameAs: [
+      "https://www.instagram.com/samsnashvillehotchicken/",
+      "https://www.tiktok.com/@samsnashvillehot",
+    ],
+    servesCuisine: ["Nashville Hot Chicken", "Halal", "Fried Chicken"],
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", ratingCount: "200" },
+    additionalProperty: [{ "@type": "PropertyValue", name: "Halal Certification", value: "Certified Halal" }],
   };
 
   return (

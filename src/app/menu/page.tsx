@@ -1,20 +1,32 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { MENU_ITEMS } from "@/data/menu";
 
 export const metadata: Metadata = {
   title: "Menu | Sam's Nashville Hot Chicken",
   description: "Nashville hot sliders, sandos, tenders, mac, dirty fries. Choose your heat.",
+  alternates: { canonical: "/menu" },
 };
 
 export default function MenuPage() {
-  const items = [
-    { name: "Nashville Hot Sliders", price: "$11.99", img: "https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg?auto=compress&cs=tinysrgb&w=1200" },
-    { name: "Chicken Sando", price: "$12.99", img: "https://images.pexels.com/photos/2271101/pexels-photo-2271101.jpeg?auto=compress&cs=tinysrgb&w=1200" },
-    { name: "Crispy Tenders", price: "$10.49", img: "https://images.pexels.com/photos/18492135/pexels-photo-18492135.jpeg?auto=compress&cs=tinysrgb&w=1200" },
-    { name: "Mac Attack", price: "$8.99", img: "https://images.pexels.com/photos/18165942/pexels-photo-18165942.jpeg?auto=compress&cs=tinysrgb&w=1200" },
-    { name: "Dirty Fries", price: "$7.99", img: "https://images.pexels.com/photos/4109230/pexels-photo-4109230.jpeg?auto=compress&cs=tinysrgb&w=1200" },
-    { name: "Loaded Box", price: "$15.99", img: "https://images.pexels.com/photos/628752/pexels-photo-628752.jpeg?auto=compress&cs=tinysrgb&w=1200" },
-  ];
+  const items = MENU_ITEMS;
+  const menuLd = {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    name: "Sam's Nashville Hot Chicken Menu",
+    hasMenuItem: items.map((i) => ({
+      "@type": "MenuItem",
+      name: i.name,
+      description: i.description,
+      image: i.image,
+      offers: {
+        "@type": "Offer",
+        price: i.price.replace(/\$/g, ""),
+        priceCurrency: "CAD",
+      },
+    })),
+  };
 
   return (
     <main className="font-sans section">
@@ -29,7 +41,9 @@ export default function MenuPage() {
               </div>
               <div className="p-5 flex items-center justify-between">
                 <div>
-                  <h3 className="font-bold text-lg text-[var(--color-brand)]">{item.name}</h3>
+                  <h3 className="font-bold text-lg text-[var(--color-brand)]">
+                    <Link href={`/menu/${item.slug}`}>{item.name}</Link>
+                  </h3>
                   <p className="text-white">{item.price}</p>
                 </div>
                 <a href="#order" className="btn btn-red" data-analytics-event="order_click" data-analytics-label={`menu_page_${item.name}`}>Order</a>
@@ -38,6 +52,7 @@ export default function MenuPage() {
           ))}
         </div>
       </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(menuLd) }} />
     </main>
   );
 }
